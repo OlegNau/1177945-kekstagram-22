@@ -68,7 +68,7 @@ const createDescriptionPhoto = () => {
     url: 'photos/' + (i + 1) + '.jpg',
     description: getRandomArrayElement(PHOTOINFO),
     likes: getRandomValue(LIKES.MIN,LIKES.MAX),
-    comments: createComments()
+    comments: createComments(quantityComments.MIN,quantityComments.MAX)
     };
   }
   return newDescriptions
@@ -84,6 +84,7 @@ const createComments = () => {
     name: getRandomArrayElement(NAMES)
     };
    }
+   return newComments
 };
 
 console.log(createDescriptionPhoto(SIMILAR_PHOTOINFO_COUNT));
