@@ -67,7 +67,7 @@ const createDescriptionPhoto = () => {
 
 const createComments = (commentsCount) => {
   let newComment = [];
-  for (let i = commentsCount; i < 4; i++) {
+  for (let i = 0; i < commentsCount; i++) {
     newComment[i] = {
       id: i+1,
       avatar: 'img/avatar-' + (getRandomValue(1, 6)) + '.svg',
