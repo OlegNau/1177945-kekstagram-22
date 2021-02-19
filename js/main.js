@@ -52,9 +52,9 @@ const getRandomArrayElement = (elements) => {
   return elements[getRandomValue(0, elements.length - 1)];
 };
 
-const createDescriptionPhoto = () => {
+const createDescriptionPhoto = (similarPhotoInfoCount) => {
   let newDescriptions = [];
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < similarPhotoInfoCount; i++) {
     newDescriptions[i] = {
       id: i+1,
       url: 'photos/' + (i + 1) + '.jpg',
