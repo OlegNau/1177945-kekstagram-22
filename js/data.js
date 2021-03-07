@@ -62,3 +62,5 @@ const createComments = (commentsCount) => {
 
 // eslint-disable-next-line
 console.log(createDescriptionPhoto(SIMILAR_PHOTOINFO_COUNT));
+
+export {createDescriptionPhoto};
