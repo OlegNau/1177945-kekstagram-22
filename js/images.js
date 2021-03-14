@@ -5,7 +5,7 @@ const templatePicture = document.querySelector('#picture')
   .content
   .querySelector('.pictures');
 
-const similarPhotos = createDescriptionPhoto();
+const similarPhotos = createDescriptionPhoto(25);
 
 const similarListFragment = document.createDocumentFragment();
 
