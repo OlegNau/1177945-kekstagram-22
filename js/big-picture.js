@@ -1,8 +1,8 @@
-import {isEscEvent, isEnterEvent, quantityComments} from './util.js';
+import {isEscEvent, isEnterEvent, quantityComments, getRandomValue} from './util.js';
 
 const bigPicture = document.querySelector('.big-picture');
 const сloseBigPicture = document.querySelector('.big-picture__cancel');
-const commentsList = document.querySelector('.social__comments')
+const commentsList = document.querySelector('.social__comments');
 
 const openBigPicture = (photo) => {
   bigPicture.classList.remove('hidden');
@@ -46,8 +46,8 @@ const createComments = (photo) => {
     let elementComment = document.createElement('li')
     let autorAvatar = document.createElement('img');
     autorAvatar.classList = 'social__picture';
-    autorAvatar.src = 'img/avatar-' + window.util.getRandomInteger(1, 6) + '.svg';
-    autorAvatar.alt = 'Аватар комментатора фотографии';
+    autorAvatar.src = 'img/avatar-' + (getRandomValue(1, 6)) + '.svg';
+    autorAvatar.alt = 'имя комментатора';
     autorAvatar.width = '35';
     autorAvatar.height = '35';
 
