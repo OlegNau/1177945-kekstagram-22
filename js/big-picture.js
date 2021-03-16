@@ -1,13 +1,12 @@
-import {isEscEvent, isEnterEvent, quantityComments, getRandomValue} from './util.js';
+import {isEscEvent, isEnterEvent, getRandomValue} from './util.js';
 
 const bigPicture = document.querySelector('.big-picture');
-const сloseBigPicture = document.querySelector('.big-picture__cancel');
+const bottomCloseBigPicture = document.querySelector('.big-picture__cancel');
 const commentsList = document.querySelector('.social__comments');
 
 const openBigPicture = (photo) => {
   bigPicture.classList.remove('hidden');
   fillBigPicture(photo);
-  createComments(photo) ;
   document.body.classList.add('modal-open');
 
   const onEscPress = (evt) => {
@@ -20,29 +19,25 @@ const openBigPicture = (photo) => {
   document.addEventListener('keydown', onEscPress);
 };
 
-сloseBigPicture.addEventListener('click') {
-  bigPicture.classList.add('hidden');
+const сloseBigPicture = () => {
+  CloseBigPicture.classList.add('hidden');
   document.body.classList.remove('modal-open');
-
-  const onEnterPress = (evt) => {
-    if (isEnterEvent(evt)) {
-      evt.preventDefault();
-      bigPicture.classList.remove('hidden');
-      document.removeEventListener('keydown', onEnterPress);
-    }
-  }
-  document.addEventListener('keydown', onEnterPress);
 };
+
+bottomCloseBigPicture.addEventListener('click' () => {сloseBigPicture();
+});
+
 
 const fillBigPicture = (photo) => {
   bigPicture.querySelector('.big-picture__img').querySelector(`img`).src = photo.url;
   bigPicture.querySelector('.likes-count').textContent = photo.likes;
   bigPicture.querySelector('.comments-count').textContent = photo.comments.length;
   bigPicture.querySelector('.social__caption').textContent = photo.description;
+  createComments(photo);
 };
 
 const createComments = (photo) => {
-  for (let i=0; i < quantityComments; i++) {
+  for (let i=0; i < photo.comments.length; i++) {
     let elementComment = document.createElement('li')
     let autorAvatar = document.createElement('img');
     autorAvatar.classList = 'social__picture';
