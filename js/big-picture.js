@@ -28,6 +28,7 @@ bottomCloseBigPicture.addEventListener('click' () => {сloseBigPicture();
 });
 
 
+
 const fillBigPicture = (photo) => {
   bigPicture.querySelector('.big-picture__img').querySelector(`img`).src = photo.url;
   bigPicture.querySelector('.likes-count').textContent = photo.likes;
