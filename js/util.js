@@ -17,4 +17,8 @@ const getRandomArrayElement = (elements) => {
   return elements[getRandomValue(0, elements.length - 1)];
 };
 
-export {getRandomValue, getRandomArrayElement};
+const isEscEvent = (evt) => {
+  return evt.key === ('Escape' || 'Esc');
+};
+
+export {getRandomValue, getRandomArrayElement, isEscEvent};
