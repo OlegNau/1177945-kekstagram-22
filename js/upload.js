@@ -13,8 +13,8 @@ const showUploadOverlay = () => {
 
 
 const closeUploadOverlay = () => {
-  imgUploadOverlay.classList.remove('hidden');
-  document.body.classList.add('modal-open');
+  imgUploadOverlay.classList.add('hidden');
+  document.body.classList.remove('modal-open');
   document.addEventListener('keydown', onOverlayEscKeydown);
   buttomUploadCancel.addEventListener('click', onOverlayButtonClick);
 }
@@ -31,3 +31,4 @@ const onOverlayButtonClick = () => {
   closeUploadOverlay();
 }
 
+buttomUploadCancel.addEventListener('click', closeUploadOverlay);
