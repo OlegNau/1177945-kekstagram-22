@@ -6,22 +6,22 @@ let currentScale = CURRENT_SCALE;
 
 const buttonScaleSmaller = document.querySelector('.scale__control--smaller');
 const buttonScaleBigger = document.querySelector('.scale__control--bigger');
-const scaleControlValue = document.querySelector('.scale__control--value');
-const imgPreview = document.querySelector('.img-upload__preview');
+const scaleControl = document.querySelector('.scale__control--value');
+const imgPreviewContainer = document.querySelector('.img-upload__preview');
 
 const onScaleSmaller = () => {
   if (currentScale > MIN_SCALE && currentScale <= MAX_SCALE) {
     currentScale -= STEP;
-    scaleControlValue.value = currentScale + '%';
-    imgPreview.style.transform = 'scale' + ((currentScale/MAX_SCALE));
+    scaleControl.value = currentScale + '%';
+    imgPreviewContainer.style.transform = 'scale(' + currentScale/MAX_SCALE + ')';
   }
 };
 
 const onScaleBigger = () => {
   if (currentScale >= MIN_SCALE && currentScale < MAX_SCALE) {
     currentScale += STEP;
-    scaleControlValue.value = currentScale + '%';
-    imgPreview.style.transform = 'scale' + ((currentScale/MAX_SCALE));
+    scaleControl.value = currentScale + '%';
+    imgPreviewContainer.style.transform = 'scale(' + currentScale/MAX_SCALE + ')';
   }
 };
 
