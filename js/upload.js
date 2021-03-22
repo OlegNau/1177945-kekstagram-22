@@ -32,3 +32,7 @@ const onOverlayButtonClick = () => {
 }
 
 buttomUploadCancel.addEventListener('click', closeUploadOverlay);
+
+uploadFile.addEventListener('change', function () {
+  showUploadOverlay();
+});
