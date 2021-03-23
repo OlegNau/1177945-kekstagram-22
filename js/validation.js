@@ -1,4 +1,4 @@
-const hashtags = document.querySelector('.text__hashtags');
+const hashtagElements = document.querySelector('.text__hashtags');
 const textDecription =  document.querySelector('.text__description');
 const HASHTAGS_MAX = 20;
 const HASHTAGS_MAX_QUANTITY = 5;
@@ -11,34 +11,30 @@ const onEscInput = (evt) => {
   }
 };
 
-hashtags.addEventListener('keydown', onEscInput);
+hashtagElements.addEventListener('keydown', onEscInput);
 textDecription.addEventListener('keydown', onEscInput);
 
 const onHashtagsInput = () => {
-  const hashtagElements = hashtags.value.trim().toLowerCase().split(' ');
+  const hashtags = hashtagElements.value.trim().toLowerCase().split(' ');
   if (hashtagElements.length > HASHTAGS_MAX_QUANTITY) {
-    hashtags.setCustomValidity('Максимальное колличество хештегов' + HASHTAGS_MAX_QUANTITY);
-    return;
-    } else {
-      hashtagElements.forEach((hashtag) => {
-        if (hashtag[0] !== '#') {
-        hashtags.setCustomValidity('Хештег обязательно должен содержать #');
-      } else if (hashtag.length < 2) {
-        hashtags.setCustomValidity('Введите имя хештега');
-      } else if (!symbolsRange.test(hashtag)) {
-        hashtags.setCustomValidity('строка после решётки должна состоять из букв и чисел и не может содержать пробелы, спецсимволы (#, @, $ и т. п.), символы пунктуации (тире, дефис, запятая и т. п.), эмодзи и т. д.;');
-      } else if (hashtag.length > HASHTAGS_MAX) {
-        hashtags.setCustomValidity('максимальная длина одного хэш-тега ' + HASHTAGS_MAX + ' символов, включая решётку');
-      } else if (hashtagElements.length !== new Set(hashtagElements).size) {
-        hashtags.setCustomValidity('Хэштеги не могут повторяться');
-      } else {
-        hashtags.reportValidity('');
-      }
-    });
+    return hashtagElements.setCustomValidity('Максимальное колличество хештегов' + HASHTAGS_MAX_QUANTITY);
   }
-  hashtags.reportValidity();
+  for (const hashtag of hashtagElements) {
+    if (hashtag[0] !== '#') {
+      return hashtagElements.setCustomValidity('Хештег обязательно должен содержать #');
+    } else if (hashtag.length < 2) {
+      return hashtagElements.setCustomValidity('Введите имя хештега');
+    } else if (!symbolsRange.test(hashtag)) {
+      return hashtagElements.setCustomValidity('строка после решётки должна состоять из букв и чисел и не может содержать пробелы, спецсимволы (#, @, $ и т. п.), символы пунктуации (тире, дефис, запятая и т. п.), эмодзи и т. д.;');
+    } else if (hashtag.length > HASHTAGS_MAX) {
+      return hashtagElements.setCustomValidity('максимальная длина одного хэш-тега ' + HASHTAGS_MAX + ' символов, включая решётку');
+    } else if (hashtags.length !== new Set(hashtags).size) {
+      return  hashtagElements.setCustomValidity('Хэштеги не могут повторяться');
+    }
+  }
+  hashtagElements.setCustomValidity();
 };
 
-hashtags.addEventListener('input', onHashtagsInput);
+hashtagElements.addEventListener('input', onHashtagsInput);
 
 
