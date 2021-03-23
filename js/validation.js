@@ -2,10 +2,10 @@ const hashtags = document.querySelector('.text__hashtags');
 const textDecription =  document.querySelector('.text__description');
 const HASHTAGS_MAX = 20;
 const HASHTAGS_MAX_QUANTITY = 5;
-const symbolsRange = /^[0-9A-Za-zА-Яа-я]+$/;
+const symbolsRange = /^#[0-9A-Za-zА-Яа-я]+$/;
 
 const onEscInput = (evt) => {
-  if (evt.key === 'Escape' || 'Esc') {
+  if (evt.key === 'Escape' || evt.key === 'Esc') {
     evt.preventDefault();
     evt.stopPropagation();
   }
