@@ -1,4 +1,3 @@
-import {createDescriptionPhoto} from './data.js'
 import {openBigPicture} from './big-picture.js';
 
 const picturesContainer = document.querySelector('.pictures')
@@ -6,11 +5,10 @@ const templatePicture = document.querySelector('#picture')
   .content
   .querySelector('.picture');
 
-const similarPhotos = createDescriptionPhoto(25);
-
+const createPictures = (pictures) => {
 const similarListFragment = document.createDocumentFragment();
 
-similarPhotos.forEach((picture) => {
+pictures.forEach((picture) => {
   const photoElement = templatePicture.cloneNode(true);
   photoElement.querySelector('.picture__img').src = picture.url;
   photoElement.querySelector('.picture__likes').textContent = picture.likes;
@@ -20,4 +18,6 @@ similarPhotos.forEach((picture) => {
 });
 
 picturesContainer.appendChild(similarListFragment);
+};
 
+export {createPictures};

@@ -36,5 +36,3 @@ const onHashtagsInput = () => {
 };
 
 hashtagElements.addEventListener('input', onHashtagsInput);
-
-

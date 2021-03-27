@@ -34,7 +34,7 @@ const NAMES = ['Ганс',
   'Рудольф'];
 
 const SIMILAR_PHOTOINFO_COUNT = 25;
-
+/
 const createDescriptionPhoto = (similarPhotoInfoCount) => {
   let newDescriptions = [];
   for (let i = 0; i < similarPhotoInfoCount; i++) {

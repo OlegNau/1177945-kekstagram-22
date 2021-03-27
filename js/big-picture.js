@@ -3,6 +3,8 @@ import {isEscEvent, getRandomValue} from './util.js';
 const bigPicture = document.querySelector('.big-picture');
 const bottomCloseBigPicture = document.querySelector('.big-picture__cancel');
 const commentsList = document.querySelector('.social__comments');
+const COMMENTS_QUANTITY = 5;
+const commentsLoader = bigPicture.querySelector('.comments-loader');
 
 const openBigPicture = (photo) => {
   bigPicture.classList.remove('hidden');
@@ -59,5 +61,6 @@ const createComments = (photo) => {
     commentsList.appendChild(elementComment)
   }
 };
+
 
 export { openBigPicture }
